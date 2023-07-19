@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Image from "next/image";
 
 export default function SearchForm() {
 	const [ingredient, setIngredient] = useState('');
@@ -26,11 +27,12 @@ export default function SearchForm() {
 	};
 
   return (
-		<div>
+		<div style={{position: 'relative'}}>
 		<div>
 			<form onSubmit={fetchRecipes}>
-				<label for="ingredient">Ingredient</label>
+				<label htmlFor="ingredient">Ingredient</label>
 				<input 
+				id="ingredient"
 				name="ingredient"
 				type="text"
 				placeholder="Enter an Ingredient"
@@ -40,13 +42,19 @@ export default function SearchForm() {
 				<button type='submit'>Search</button>
 			</form>
 		</div>
-		<div>
-			<ul>
+		<div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around"}}>
 				{recipes.map (recipe => (
-				<li key={recipe.idMeal}>{recipe.strMeal}</li>
+				<div key={recipe.idMeal} style={{margin: '10px', width: '30%'}}>
+				<h2>{recipe.strMeal}</h2>
+				<Image
+					src= {recipe.strMealThumb}
+					width={200}
+					height={200}
+					alt= {`Picture of ${recipe.strMeal}`}				
+				/>
+				</div>
 				))}
-			</ul>
 		</div>
 		</div>
-  )
+	)
 }
