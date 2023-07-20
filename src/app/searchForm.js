@@ -49,7 +49,7 @@ export default function SearchForm() {
   return (
     <div>
       <div className={styles.searchBar}>
-        <form onSubmit={fetchRecipes}>
+        <form onSubmit={fetchRecipes} className="form-inline my-2 my-lg-0">
           <label htmlFor="ingredient">Ingredient</label>
           <input
             id="ingredient"
@@ -58,6 +58,7 @@ export default function SearchForm() {
             placeholder="Enter an Ingredient"
             value={ingredient}
             onChange={handleIngredientChange}
+            className='form-control mr-sm-2'
           />
 
           {/* <label htmlFor='category'>Category</label>
@@ -88,7 +89,7 @@ export default function SearchForm() {
         {recipes.map((recipe) => (
           <div key={recipe.idMeal} style={{ margin: "10px", width: "30%" }}>
             <h2>{recipe.strMeal}</h2>
-            <Link href={`/recipe/${recipe.idMeal}`}>              
+            <Link href={`/recipes/${recipe.idMeal}`}>              
                 <Image
                   src={recipe.strMealThumb}
                   width={200}

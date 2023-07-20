@@ -1,3 +1,4 @@
+import { Row, Col } from 'react-bootstrap';
 import styles from './page.module.css'
 import SearchForm from './searchForm';
 

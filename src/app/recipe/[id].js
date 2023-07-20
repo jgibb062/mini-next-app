@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Head from "next/head";
@@ -26,8 +28,7 @@ export default function Recipe() {
   }, [id]);
 
   if (!recipe) {
-    return
-    <div>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
